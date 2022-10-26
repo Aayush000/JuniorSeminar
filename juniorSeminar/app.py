@@ -32,7 +32,6 @@ def index():
 # @app.route('/login', methods=['GET', 'POST'])
 
 
-@app.route('/')
 @app.route('/studentSignup', methods=['GET', 'POST'])
 def student_signup():
     if request.method == "POST":
@@ -77,6 +76,32 @@ def student_signup():
     else:
         return render_template('studentSignup.html')
 
+@app.route('/')
+@app.route('/studentSignin', methods=['GET', 'POST'])
+def student_signin():
+    if request.method == "POST":
+        users = db.student_info
+        #search for username in database
+        login_user = users.find_one({'student_email': request.form['useremail']})
+
+        #if username in database
+        if login_user:
+            db_password = login_user['password']
+                #store username and user's image in session
+            session['useremail'] = request.form['useremail']
+            #encode password
+            password = request.form['password'].encode("utf-8")
+            #compare username in database to username submitted in form
+            if bcrypt.checkpw(password, db_password):
+                return "Access provided"
+            else:
+                return 'Invalid username/password combination.'
+        else:
+            return 'User not found. Please try Signing in'
+    else:
+        return render_template('studentSignin.html')
+
+
 # @app.route('/')
 @app.route('/facultySignup', methods=['GET', 'POST'])
 def faculty_signup():
@@ -119,7 +144,7 @@ def faculty_signup():
     else:  
         return render_template("facultySignup.html")
 
-@app.route('/')
+# @app.route('/')
 @app.route('/facultySignin', methods=['GET', 'POST'])
 def faculty_signin():
     if request.method == "POST":
