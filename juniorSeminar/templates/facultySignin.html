@@ -12,25 +12,26 @@
 <body>
     <div class="container">
 
+    <form action="/facultySignin" method="POST">
         <div class="main">
-            <h1>Sign in</h1>
+            <h1>Sign in - Faculty</h1>
         </div>
-
         <div class="faculty_login">
-            <input type="text" id="username" placeholder="Username">
+            <input type="email" id="useremail" name="useremail" placeholder="User email">
         </div>
 
         <div class="student_login">
-            <input type="text" id="password" placeholder="Password">
+            <input type="text" id="password" name="password" placeholder="Password">
         </div>
 
-        <button type= "button" class="log_in">Log in</button>        
+        <button type= "submit" class="log_in">Log in</button>        
 
         <div class="line">
             <hr width="90%">
         </div>
 
-    <button type= "button" class="sign_up_as_student">Sign Up as Faculty</button>
+    <button type= "button" class="sign_up_as_student"><a href="/facultySignup">Sign Up as Faculty</a></button>
         </div>
+    </form>
 </body>
 </html>

@@ -10,7 +10,7 @@
   margin-left: 40%;
 }
 .form h1 {
-  margin-left: 160px;
+  margin-left: 100px;
   color: blue;
 }
 input[type="text"] {
@@ -103,4 +103,10 @@ ul {
 
 .password a:hover {
   text-decoration: underline;
+}
+
+.sign_up_as_student a{
+    text-decoration: None;
+    color: white;
+
 }

@@ -10,7 +10,7 @@
   margin-left: 40%;
 }
 .form h1 {
-  margin-left: 160px;
+  margin-left: 100px;
   color: blue;
 }
 input[type="text"] {
@@ -108,4 +108,9 @@ ul {
 .discipline {
     margin-top: 30px;
     margin-left: 30px;
+}
+.sign_up_as_faculty a{
+    text-decoration: None;
+    color: white;
+
 }
