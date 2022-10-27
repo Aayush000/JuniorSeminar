@@ -18,19 +18,14 @@ db = client.database
 #session data
 app.secret_key = secrets.token_urlsafe(16)
 
-# @app.route('/')
+@app.route('/')
 @app.route('/index', methods=['GET', 'POST'])
 def index():
     return render_template('index.html')
 
-# @app.route('/')
-# @app.route('/upload', methods=['GET', 'POST'])
-# def upload():
-#     return render_template('upload.html')
-
-# @app.route('/')
-# @app.route('/login', methods=['GET', 'POST'])
-
+@app.route('/upload', methods=['GET', 'POST'])
+def upload():
+    return render_template('upload.html')
 
 @app.route('/studentSignup', methods=['GET', 'POST'])
 def student_signup():
